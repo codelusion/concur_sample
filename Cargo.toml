@@ -1,0 +1,6 @@
+[package]
+name = "concur_sample"
+version = "0.1.0"
+authors = ["codelusion <ash@aisaac.io>"]
+
+[dependencies]
