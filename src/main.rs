@@ -30,8 +30,7 @@ fn main() {
     for handle in handles {
         // join thread
         handle.join().unwrap();
-        // what is the current state of the mutex
-        // Could be <locked> or have readable data
+        // what is the current state of the mutex?
         println!("{:?}", s);
     }
 }
