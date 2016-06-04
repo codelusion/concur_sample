@@ -13,10 +13,10 @@ fn main() {
     // thread handles
     let mut handles = vec![];
 
-    for i in 0..10 {
+    for i in 1..11 {
         // get the inner mutex
         let mutex = s.clone();
-        // spawn thread and move ownership of mutex
+        // spawn thread and move 
         let handle = thread::spawn(move || {
             // lock for mutation inside thread
             let mut r = mutex.lock().unwrap();
@@ -31,7 +31,7 @@ fn main() {
         // join thread
         handle.join().unwrap();
         // what is the current state of the mutex
-        // Could be <locked> or show data
+        // Could be <locked> or have readable data
         println!("{:?}", s);
     }
 }
