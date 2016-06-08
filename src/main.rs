@@ -5,7 +5,7 @@ use std::sync::Mutex;
 fn main() {
     // initial value to share and mutate
     // in spawed threads
-    let shared = [1];
+    let shared = 1;
     // use Arc to share data with thread
     // mutex to allow safe mutation
     let s = Arc::new(Mutex::new(shared));
@@ -20,8 +20,8 @@ fn main() {
         let handle = thread::spawn(move || {
             // lock for mutation inside thread
             let mut r = mutex.lock().unwrap();
-            r[0] += i;
-            println!("shared: ({} + thread #{}) => {}", r[0] - i, i, r[0]);
+            *r += i;
+            println!("shared: ({} + thread #{}) => {}", *r - i, i, *r);
         });
         // save thread handle to join later
         handles.push(handle);
